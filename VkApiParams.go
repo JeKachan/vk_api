@@ -9,7 +9,7 @@ type VkApiParams struct {
 
 func NewVkApiParams() *VkApiParams {
 	model := new(VkApiParams)
-	model.V = "5.51"
+	model.V = "5.52"
 	return model
 }
 

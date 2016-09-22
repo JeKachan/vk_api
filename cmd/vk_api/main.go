@@ -10,6 +10,7 @@ import (
 )
 
 var accessToken = ""
+var userId = ""
 
 func main() {
 	fmt.Println("Start programm!")
@@ -23,15 +24,20 @@ func main() {
 		return
 	}
 	externalUrl = strings.TrimSpace(externalUrl)
-	accessToken, err = vk_api.GetAccessTokenFromStr(externalUrl)
 
+	accessToken, err = vk_api.GetAccessTokenFromStr(externalUrl)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+
+	userId, err = vk_api.GetUserId(externalUrl)
 	if err != nil {
 		fmt.Println(err.Error())
 		return
 	}
 	//resp, err := http.Get("http://example.com/")
-
-	fmt.Println(accessToken)
+	vk_api.GetAudio(accessToken, userId)
 
 	fmt.Print("End programm!")
 	//reader.ReadString('\n')
