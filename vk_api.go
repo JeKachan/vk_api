@@ -1,4 +1,4 @@
-package vk_api
+package vkapi
 
 import (
 	"strings"

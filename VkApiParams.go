@@ -1,4 +1,4 @@
-package vk_api
+package vkapi
 
 type VkApiParams struct {
 	METHOD_NAME string

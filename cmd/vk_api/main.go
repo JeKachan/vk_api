@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 	//"net/http"
-	"github.com/JeKachan/vk_api"
+	"github.com/JeKachan/vkapi"
 )
 
 var accessToken = ""
@@ -14,7 +14,7 @@ var userId = ""
 
 func main() {
 	fmt.Println("Start programm!")
-	fmt.Printf("Insert this link in your browser:\n%s\n", vk_api.FullUrl)
+	fmt.Printf("Insert this link in your browser:\n%s\n", vkapi.FullUrl)
 	fmt.Println("Plese enter getted url from page:")
 
 	reader := bufio.NewReader(os.Stdin)
@@ -25,19 +25,19 @@ func main() {
 	}
 	externalUrl = strings.TrimSpace(externalUrl)
 
-	accessToken, err = vk_api.GetAccessTokenFromStr(externalUrl)
+	accessToken, err = vkapi.GetAccessTokenFromStr(externalUrl)
 	if err != nil {
 		fmt.Println(err.Error())
 		return
 	}
 
-	userId, err = vk_api.GetUserId(externalUrl)
+	userId, err = vkapi.GetUserId(externalUrl)
 	if err != nil {
 		fmt.Println(err.Error())
 		return
 	}
 	//resp, err := http.Get("http://example.com/")
-	vk_api.GetAudio(accessToken, userId)
+	vkapi.GetAudio(accessToken, userId)
 
 	fmt.Print("End programm!")
 	//reader.ReadString('\n')
