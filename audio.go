@@ -1,19 +1,19 @@
 package vkapi
 
 import (
-	"html/template"
-	"fmt"
 	"bytes"
+	"fmt"
+	"html/template"
 )
 
-func GetAudio(accessToken string, userId string) (string, error) {
+func GetAudio(accessToken string, userID string) (string, error) {
 	result := ""
-	vap := NewVkApiParams()
-	vap.ACCESS_TOKEN = accessToken
-	vap.METHOD_NAME = "audio.get"
-	vap.PARAMETERS = "owner_id=" + userId
+	vap := NewParams()
+	vap.accessToken = accessToken
+	vap.methodName = "audio.get"
+	vap.parameters = "owner_id=" + userID
 
-	tmpl, err := template.New("VkApiUrl").Parse(QueryVkApiTemplate)
+	tmpl, err := template.New("VkApiUrl").Parse(QueryVkAPITemplate)
 	if err != nil {
 		fmt.Println(err.Error())
 		return result, err

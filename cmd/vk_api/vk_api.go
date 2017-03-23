@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"bufio"
+	"fmt"
 	"os"
 	"strings"
 	//"net/http"
@@ -14,7 +14,7 @@ var userId = ""
 
 func main() {
 	fmt.Println("Start programm!")
-	fmt.Printf("Insert this link in your browser:\n%s\n", vkapi.FullUrl)
+	fmt.Printf("Insert this link in your browser:\n%s\n", vkapi.FullURL)
 	fmt.Println("Plese enter getted url from page:")
 
 	reader := bufio.NewReader(os.Stdin)
@@ -31,7 +31,7 @@ func main() {
 		return
 	}
 
-	userId, err = vkapi.GetUserId(externalUrl)
+	userId, err = vkapi.GetUserID(externalUrl)
 	if err != nil {
 		fmt.Println(err.Error())
 		return

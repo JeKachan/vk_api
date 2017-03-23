@@ -1,8 +1,8 @@
 package vkapi
 
 import (
-	"strings"
 	"errors"
+	"strings"
 )
 
 // Get Access Token String from source string
@@ -13,7 +13,7 @@ func GetAccessTokenFromStr(s string) (string, error) {
 /**
  * Get User Id from url
  */
-func GetUserId(s string) (string, error) {
+func GetUserID(s string) (string, error) {
 	return getParamByName(s, "user_id")
 }
 
@@ -32,4 +32,3 @@ func getParamByName(s string, name string) (string, error) {
 	}
 	return param, nil
 }
-
